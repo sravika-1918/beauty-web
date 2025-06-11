@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Care Products</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fbe7e7;
+            text-align: center;
+        }
+        .filter-container {
+            margin: 20px;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px 20px;
+        }
+        .product {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            width: 250px;
+            text-align: center;
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .add-to-cart, .compare-btn {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            color: white;
+        }
+        .add-to-cart { background-color: #ff6b6b; }
+        .compare-btn { background-color: #4CAF50; }
+        .add-to-cart:hover { background-color: #e55b5b; }
+        .compare-btn:hover { background-color: #3e8e41; }
+    </style>
+</head>
+<body>
+    <h1>Face Care Products</h1>
+
+    <div class="product-container" id="product-list">
+        <div class="product" data-brand="Minimalist" data-concern="Acne">
+            <img src="https://m.media-amazon.com/images/I/71Epv8aPEoL.jpg" alt="Face Serum">
+            <h3>Niacinamide Serum</h3>
+            <p>Brand: Minimalist</p>
+            <p>Concern: Acne</p>
+            <p>Price: $18.99</p>
+            <button class="add-to-cart" onclick="addToCart('Niacinamide Serum', 18.99)">Add to Cart</button>
+            <button class="compare-btn" onclick="addToCompare('Niacinamide Serum', 18.99)">Compare</button>
+        </div>
+
+        <div class="product" data-brand="The Ordinary" data-concern="Dry Skin">
+            <img src="https://d1iuscsovtvj4y.cloudfront.net/__sized__/products/Moisturizing_Factors__HA_100ml-thumbnail-510x510-70.jpg" alt="Moisturizer">
+            <h3>Hydrating Moisturizer</h3>
+            <p>Brand: The Ordinary</p>
+            <p>Concern: Dry Skin</p>
+            <p>Price: $14.99</p>
+            <button class="add-to-cart" onclick="addToCart('Hydrating Moisturizer', 14.99)">Add to Cart</button>
+            <button class="compare-btn" onclick="addToCompare('Hydrating Moisturizer', 14.99)">Compare</button>
+        </div>
+
+        <div class="product" data-brand="The Derma Co" data-concern="Hyperpigmentation">
+            <img src="data:image/jpeg;base64,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" alt="Vitamin C Serum">
+            <h3>Vitamin C Serum</h3>
+            <p>Brand: The Derma Co</p>
+            <p>Concern: Hyperpigmentation</p>
+            <p>Price: $16.99</p>
+            <button class="add-to-cart" onclick="addToCart('Vitamin C Serum', 16.99)">Add to Cart</button>
+            <button class="compare-btn" onclick="addToCompare('Vitamin C Serum', 16.99)">Compare</button>
+        </div>
+    </div>
+
+    <a href="cart.html">🛒 Go to Cart</a> | <a href="compare.html">🔍 Compare Products</a>
+
+    <script>
+        function addToCart(name, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ name, price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(name + " added to cart!");
+        }
+
+        function addToCompare(name, price) {
+            let compare = JSON.parse(localStorage.getItem('compare')) || [];
+            compare.push({ name, price });
+            localStorage.setItem('compare', JSON.stringify(compare));
+            alert(name + " added to compare list!");
+        }
+    </script>
+</body>
+</html>

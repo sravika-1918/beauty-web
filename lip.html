@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lip Care Products</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fbe7e7;
+            text-align: center;
+        }
+
+        .filter-container {
+            margin: 20px;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px 20px;
+        }
+
+        .product {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            width: 250px;
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .product h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .product p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .add-to-cart {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .add-to-cart:hover {
+            background-color: #e55b5b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lip Care Products</h1>
+    
+    <div class="filter-container">
+        <label for="brand-filter">Filter by Brand:</label>
+        <select id="brand-filter" onchange="filterProducts()">
+            <option value="all">All</option>
+            <option value="The Ordinary">The Ordinary</option>
+            <option value="Minimalist">Minimalist</option>
+            <option value="The Derma Co">The Derma Co</option>
+            <option value="Dot & Key">Dot & Key</option>
+        </select>
+    </div>
+    
+    <div class="product-container" id="product-list">
+        <div class="product" data-brand="The Ordinary">
+            <img src="https://via.placeholder.com/200" alt="Lip Balm">
+            <h3>Hydrating Lip Balm</h3>
+            <p>Brand: The Ordinary</p>
+            <p>Price: $9.99</p>
+            <p>Moisturizes and protects dry lips.</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        
+        <div class="product" data-brand="Minimalist">
+            <img src="https://via.placeholder.com/200" alt="Lip Scrub">
+            <h3>Exfoliating Lip Scrub</h3>
+            <p>Brand: Minimalist</p>
+            <p>Price: $7.99</p>
+            <p>Removes dead skin and softens lips.</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+    </div>
+    
+    <script>
+        function filterProducts() {
+            let filterValue = document.getElementById("brand-filter").value;
+            let products = document.querySelectorAll(".product");
+            
+            products.forEach(product => {
+                product.style.display = (filterValue === "all" || product.getAttribute("data-brand") === filterValue) ? "block" : "none";
+            });
+        }
+    </script>
+</body>
+</html>

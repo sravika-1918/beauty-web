@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn About Skincare Acids</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff5f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff66b2;
+        }
+
+        .acid {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 2px solid #ff66b2;
+            border-radius: 5px;
+            background: #ffe6e6;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .acid:hover {
+            background: #ffccdd;
+        }
+
+        .acid-content {
+            display: none;
+            padding: 10px;
+            background: #fff0f5;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .back-button {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #ff66b2;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 100px;
+            margin: auto;
+        }
+
+        .back-button:hover {
+            background-color: #d147a3;
+        }
+
+        .acid-content p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Learn About Skincare Acids</h1>
+
+        <div class="acid" onclick="toggleInfo('niacinamide')">Niacinamide</div>
+        <div class="acid-content" id="niacinamide">
+            <p><strong>Skin Type:</strong> All skin types, especially oily & acne-prone.</p>
+            <p><strong>Benefits:</strong> Reduces inflammation, minimizes pores, regulates oil, and evens skin tone.</p>
+            <p><strong>Skin Concerns:</strong> Acne, dark spots, redness, dullness.</p>
+            <p><strong>How It Works:</strong> Strengthens the skin barrier and improves hydration.</p>
+            <p><strong>Best Combinations:</strong></p>
+            <ul>
+                <li><strong>+ Hyaluronic Acid</strong> → Best for Dry Skin</li>
+                <li><strong>+ Vitamin C</strong> → Fades Dark Spots & Evens Skin Tone</li>
+                <li><strong>+ Retinol</strong> → Treats Acne & Wrinkles</li>
+                <li><strong>+ Salicylic Acid</strong> → Controls Oil & Fights Acne</li>
+                <li><strong>+ Alpha Arbutin</strong> → Reduces Pigmentation & Dark Spots</li>
+            </ul>
+            <p><strong>Acid Combinations to Avoid:</strong> Avoid combining with Vitamin C (may cause irritation when used together).</p>
+        </div>
+
+        <div class="acid" onclick="toggleInfo('lactic')">Lactic Acid</div>
+        <div class="acid-content" id="lactic">
+            <p><strong>Skin Type:</strong> Dry and sensitive skin.</p>
+            <p><strong>Benefits:</strong> Hydrates, exfoliates, and brightens.</p>
+            <p><strong>Skin Concerns:</strong> Dull skin, uneven texture, dryness.</p>
+            <p><strong>How It Works:</strong> Gently removes dead skin cells while maintaining moisture.</p>
+            <p><strong>Best Combinations:</strong></p>
+            <ul>
+                <li><strong>+ Niacinamide</strong> → Improves Texture & Brightens Skin</li>
+                <li><strong>+ Hyaluronic Acid</strong> → Deep Hydration</li>
+                <li><strong>+ Vitamin C</strong> → Boosts Glow & Reduces Pigmentation</li>
+            </ul>
+            <p><strong>Acid Combinations to Avoid:</strong> Avoid combining with other strong exfoliants like Glycolic Acid to prevent irritation.</p>
+        </div>
+
+        <div class="acid" onclick="toggleInfo('salicylic')">Salicylic Acid</div>
+        <div class="acid-content" id="salicylic">
+            <p><strong>Skin Type:</strong> Oily and acne-prone skin.</p>
+            <p><strong>Benefits:</strong> Unclogs pores, reduces acne, and controls oil.</p>
+            <p><strong>Skin Concerns:</strong> Acne, blackheads, whiteheads.</p>
+            <p><strong>How It Works:</strong> Exfoliates deep into pores to remove excess oil.</p>
+            <p><strong>Best Combinations:</strong></p>
+            <ul>
+                <li><strong>+ Niacinamide</strong> → Best for Oily & Acne-Prone Skin</li>
+                <li><strong>+ Zinc</strong> → Regulates Oil & Soothes Skin</li>
+            </ul>
+            <p><strong>Acid Combinations to Avoid:</strong> Avoid combining with Glycolic Acid as it may lead to over-exfoliation.</p>
+        </div>
+
+        <div class="acid" onclick="toggleInfo('hyaluronic')">Hyaluronic Acid</div>
+        <div class="acid-content" id="hyaluronic">
+            <p><strong>Skin Type:</strong> All skin types, especially dry skin.</p>
+            <p><strong>Benefits:</strong> Provides hydration, plumps skin, and reduces fine lines.</p>
+            <p><strong>Skin Concerns:</strong> Dryness, dehydration, fine lines.</p>
+            <p><strong>How It Works:</strong> Retains moisture for long-lasting hydration.</p>
+            <p><strong>Best Combinations:</strong></p>
+            <ul>
+                <li><strong>+ Niacinamide</strong> → Hydrates & Strengthens Skin Barrier</li>
+                <li><strong>+ Lactic Acid</strong> → Deeply Moisturizes & Exfoliates</li>
+            </ul>
+            <p><strong>Acid Combinations to Avoid:</strong> Generally safe with other acids, but avoid combining with strong exfoliants for sensitive skin.</p>
+        </div>
+
+        <div class="acid" onclick="toggleInfo('glycolic')">Glycolic Acid</div>
+        <div class="acid-content" id="glycolic">
+            <p><strong>Skin Type:</strong> Normal, combination, and oily skin.</p>
+            <p><strong>Benefits:</strong> Exfoliates, brightens, smooths skin texture.</p>
+            <p><strong>Skin Concerns:</strong> Dullness, hyperpigmentation, fine lines.</p>
+            <p><strong>How It Works:</strong> Removes dead skin and boosts collagen.</p>
+            <p><strong>Best Combinations:</strong></p>
+            <ul>
+                <li><strong>+ Hyaluronic Acid</strong> → Hydration & Exfoliation</li>
+                <li><strong>+ Vitamin C</strong> → Enhances Glow & Reduces Pigmentation</li>
+            </ul>
+            <p><strong>Acid Combinations to Avoid:</strong> Avoid using with other strong acids (like Salicylic Acid) to prevent irritation.</p>
+        </div>
+
+        <a href="home3.html" class="back-button">Back</a>
+    </div>
+
+    <script>
+        function toggleInfo(id) {
+            let content = document.getElementById(id);
+            let allContents = document.querySelectorAll('.acid-content');
+
+            allContents.forEach((item) => {
+                if (item.id !== id) {
+                    item.style.display = "none";
+                }
+            });
+
+            content.style.display = content.style.display === "block" ? "none" : "block";
+        }
+    </script>
+
+</body>
+</html>

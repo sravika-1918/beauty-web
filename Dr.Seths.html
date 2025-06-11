@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff8e1; /* Light yellow background */
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #ffeb3b; /* Bright yellow border around container */
+        }
+        .brand-title {
+            text-align: center;
+            color: #ffeb3b; /* Bright yellow color for brand title */
+        }
+        .brand-description {
+            text-align: center;
+            margin-top: 10px;
+            color: #333; /* Dark grey for description */
+        }
+        h2 {
+            text-align: center;
+            color: #ffeb3b; /* Bright yellow color for subheading */
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .product-item {
+            width: 150px;
+            text-align: center;
+        }
+        .product-item img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .container h1, .container p {
+            color: #333; /* Dark grey for text content */
+        }
+        .chat-box {
+            display: none;
+            margin-top: 20px;
+            border-top: 2px solid #ccc;
+            padding-top: 10px;
+        }
+        .chat-messages {
+            height: 150px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+        .chat-controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .chat-controls input {
+            flex-grow: 1;
+            padding: 5px;
+        }
+        .chat-controls button {
+            padding: 5px;
+            background: #ffeb3b;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #capturedImage {
+            max-width: 100px;
+            display: none;
+            margin-top: 10px;
+        }
+        video {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="brand-title">Dr. Seth's</h1>
+        <p class="brand-description">Dr. Seth's is a skincare brand that blends the best of science and nature to create effective, targeted skincare solutions. The brand is known for its innovative products, often infused with botanical extracts and potent actives. Dr. Seth's focuses on providing cruelty-free, vegan, and dermatologically-tested products suitable for all skin types. From hydration to acne treatments, their formulations are designed to tackle various skin concerns while ensuring gentle care.</p>
+        <h2>Available Products</h2>
+      
+        <div class="products">
+            <div class="product-item">
+                <img src="data:image/jpeg;base64,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" alt="Product 1">
+            </div>
+            <div class="product-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpgyaxLNr8UykQRnxHFziITl1WeGvHjaWZQQ&s" alt="Product 2">
+            </div>
+            <div class="product-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHzrHIhF6fVJOaAgXSOFay2NBduvI69ysezw&s" alt="Product 3">
+            </div>
+        </div>
+        
+        <!-- Chat Box Button -->
+        <button onclick="openChat()">Chat for Suggestions</button>
+
+        <!-- Chat Box -->
+        <div class="chat-box" id="chatBox">
+            <h3>Chat with Dr. Seth's</h3>
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-controls">
+                <input type="text" id="chatInput" placeholder="Type a message...">
+                <button onclick="sendMessage()">Send</button>
+                <button onclick="openCamera()">📷</button>
+                <button onclick="captureImage()">📸</button>
+            </div>
+            <video id="video" width="200" height="150" autoplay></video>
+            <canvas id="canvas" style="display:none;"></canvas>
+            <img id="capturedImage" alt="Captured Image">
+        </div>
+    </div>
+
+    <script>
+        function openChat() {
+            document.getElementById("chatBox").style.display = "block";
+        }
+
+        function sendMessage() {
+            let input = document.getElementById("chatInput").value;
+            if (input.trim()) {
+                let chatMessages = document.getElementById("chatMessages");
+                
+                // Display the customer's message
+                let message = document.createElement("div");
+                message.innerText = "You: " + input;
+                chatMessages.appendChild(message);
+                
+                // Clear the input field
+                document.getElementById("chatInput").value = "";
+                
+                // Scroll the messages box to the bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Simulate a brand reply after 2 seconds
+                setTimeout(brandReply, 2000);
+            }
+        }
+        
+        function brandReply() {
+            let chatMessages = document.getElementById("chatMessages");
+            let message = document.createElement("div");
+            message.innerText = "Dr. Seth's: Thank you for your message! We will get back to you shortly.";
+            chatMessages.appendChild(message);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function openCamera() {
+            const video = document.getElementById("video");
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    video.style.display = "block";
+                    video.srcObject = stream;
+                })
+                .catch(error => console.error("Error accessing camera: ", error));
+        }
+        
+        function captureImage() {
+            const video = document.getElementById("video");
+            const canvas = document.getElementById("canvas");
+            const capturedImage = document.getElementById("capturedImage");
+            
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            
+            const imageUrl = canvas.toDataURL("image/png");
+            capturedImage.src = imageUrl;
+            capturedImage.style.display = "block";
+            
+            let chatMessages = document.getElementById("chatMessages");
+            let imgElement = document.createElement("img");
+            imgElement.src = imageUrl;
+            imgElement.style.maxWidth = "100px";
+            chatMessages.appendChild(imgElement);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair Care Products</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fbe7e7;
+            text-align: center;
+        }
+        .filter-container {
+            margin: 20px;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px 20px;
+        }
+        .product {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            width: 250px;
+            text-align: center;
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .add-to-cart, .compare-btn {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            color: white;
+        }
+        .add-to-cart { background-color: #ff6b6b; }
+        .compare-btn { background-color: #4CAF50; }
+        .add-to-cart:hover { background-color: #e55b5b; }
+        .compare-btn:hover { background-color: #3e8e41; }
+    </style>
+</head>
+<body>
+    <h1>Hair Care Products</h1>
+
+    <div class="product-container" id="product-list">
+        <div class="product" data-brand="The Ordinary" data-concern="Hair Fall">
+            <img src="https://luxebykan.com/cdn/shop/files/IMG-4220.png?v=1718013027" alt="Hair Serum">
+            <h3>Hair Serum</h3>
+            <p>Brand: The Ordinary</p>
+            <p>Concern: Hair Fall</p>
+            <p>Price: $15.99</p>
+            <button class="add-to-cart" onclick="addToCart('Hair Serum', 15.99)">Add to Cart</button>
+            <button class="compare-btn" onclick="addToCompare('Hair Serum', 15.99)">Compare</button>
+        </div>
+
+        <div class="product" data-brand="Minimalist" data-concern="Dry Scalp">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRueB7rb0QAx7pfJqPsdcKzlBdBZkxzwxbmDtZRsGyHWajkEU-nnh5rr4b7lJGjypScOg4&usqp=CAU" alt="Shampoo">
+            <h3>Moisturizing Shampoo</h3>
+            <p>Brand: Minimalist</p>
+            <p>Concern:Anti Dradruff </p>
+            <p>Price: $12.99</p>
+            <button class="add-to-cart" onclick="addToCart('Moisturizing Shampoo', 12.99)">Add to Cart</button>
+            <button class="compare-btn" onclick="addToCompare('Moisturizing Shampoo', 12.99)">Compare</button>
+        </div>
+
+        <div class="product" data-brand="The Derma Co" data-concern="Dandruff">
+            <img src="https://images.thedermaco.com/catalog/product/f/o/fop_13_3.jpg?auto=format&fit=contain&width=720&auto=compress?format=auto" alt="Conditioner">
+            <h3>Shampoo</h3>
+            <p>Brand: The Derma Co</p>
+            <p>Concern: Hair Fall </p>
+            <p>Price: $14.99</p>
+            <button class="add-to-cart" onclick="addToCart('Shampoo', 14.99)">Add to Cart</button>
+            <button class="compare-btn" onclick="addToCompare('Shampoo', 14.99)">Compare</button>
+        </div>
+    </div>
+
+    <a href="cart.html">🛒 Go to Cart</a> | <a href="compare.html">🔍 Compare Products</a>
+
+    <script>
+        function addToCart(name, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ name, price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(name + " added to cart!");
+        }
+
+        function addToCompare(name, price) {
+            let compare = JSON.parse(localStorage.getItem('compare')) || [];
+            compare.push({ name, price });
+            localStorage.setItem('compare', JSON.stringify(compare));
+            alert(name + " added to compare list!");
+        }
+    </script>
+</body>
+</html>

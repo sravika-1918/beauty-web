@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #e6f7ff; /* Light blue background */
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #007bff; /* Blue border around container */
+        }
+        .brand-title {
+            text-align: center;
+            color: #007bff; /* Blue color for brand title */
+        }
+        .brand-description {
+            text-align: center;
+            margin-top: 10px;
+            color: #333; /* Dark grey for description */
+        }
+        h2 {
+            text-align: center;
+            color: #007bff; /* Blue color for subheading */
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .product-item {
+            width: 150px;
+            text-align: center;
+        }
+        .product-item img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .container h1, .container p {
+            color: #333; /* Dark grey for text content */
+        }
+        .chat-box {
+            display: none;
+            margin-top: 20px;
+            border-top: 2px solid #ccc;
+            padding-top: 10px;
+        }
+        .chat-messages {
+            height: 150px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+        .chat-controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .chat-controls input {
+            flex-grow: 1;
+            padding: 5px;
+        }
+        .chat-controls button {
+            padding: 5px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #capturedImage {
+            max-width: 100px;
+            display: none;
+            margin-top: 10px;
+        }
+        video {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="brand-title">THE DERMA CO</h1>
+        <p class="brand-description">The Derma Co is a skincare brand created by dermatologists to offer effective solutions for various skin concerns. The brand is committed to using clean, non-toxic ingredients that deliver visible results. With products formulated to target acne, hyperpigmentation, anti-aging, and more, The Derma Co ensures that each product is clinically tested for safety and efficacy. Whether you're battling skin imperfections or aiming to maintain a youthful glow, The Derma Co provides skincare that works for everyone.</p>
+        <h2>Available Products</h2>
+      
+        <div class="products">
+            <div class="product-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRattYqJaMpRzD2BN8qaPoyCRPrwIfAZxejRQ&s" >
+            </div>
+            <div class="product-item">
+                <img src="data:image/jpeg;base64,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" >
+            </div>
+            <div class="product-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2Z7b48tcWq_38jhBdAX_cT6wM-arjEQonjQ&s" >
+            </div>
+        </div>
+        
+        <!-- Chat Box Button -->
+        <button onclick="openChat()">Chat for Suggestions</button>
+
+        <!-- Chat Box -->
+        <div class="chat-box" id="chatBox">
+            <h3>Chat with The Derma Co</h3>
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-controls">
+                <input type="text" id="chatInput" placeholder="Type a message...">
+                <button onclick="sendMessage()">Send</button>
+                <button onclick="openCamera()">📷</button>
+                <button onclick="captureImage()">📸</button>
+            </div>
+            <video id="video" width="200" height="150" autoplay></video>
+            <canvas id="canvas" style="display:none;"></canvas>
+            <img id="capturedImage" alt="Captured Image">
+        </div>
+    </div>
+
+    <script>
+        function openChat() {
+            document.getElementById("chatBox").style.display = "block";
+        }
+
+        function sendMessage() {
+            let input = document.getElementById("chatInput").value;
+            if (input.trim()) {
+                let chatMessages = document.getElementById("chatMessages");
+                
+                // Display the customer's message
+                let message = document.createElement("div");
+                message.innerText = "You: " + input;
+                chatMessages.appendChild(message);
+                
+                // Clear the input field
+                document.getElementById("chatInput").value = "";
+                
+                // Scroll the messages box to the bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Simulate a brand reply after 2 seconds
+                setTimeout(brandReply, 2000);
+            }
+        }
+        
+        function brandReply() {
+            let chatMessages = document.getElementById("chatMessages");
+            let message = document.createElement("div");
+            message.innerText = "The Derma Co: Thank you for your message! We will get back to you shortly.";
+            chatMessages.appendChild(message);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function openCamera() {
+            const video = document.getElementById("video");
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    video.style.display = "block";
+                    video.srcObject = stream;
+                })
+                .catch(error => console.error("Error accessing camera: ", error));
+        }
+        
+        function captureImage() {
+            const video = document.getElementById("video");
+            const canvas = document.getElementById("canvas");
+            const capturedImage = document.getElementById("capturedImage");
+            
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            
+            const imageUrl = canvas.toDataURL("image/png");
+            capturedImage.src = imageUrl;
+            capturedImage.style.display = "block";
+            
+            let chatMessages = document.getElementById("chatMessages");
+            let imgElement = document.createElement("img");
+            imgElement.src = imageUrl;
+            imgElement.style.maxWidth = "100px";
+            chatMessages.appendChild(imgElement);
+        }
+    </script>
+</body>
+</html>

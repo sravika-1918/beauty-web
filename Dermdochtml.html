@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #e6f7ff; /* Light blue background */
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #007bff; /* Blue border around container */
+        }
+        .brand-title {
+            text-align: center;
+            color: #007bff; /* Blue color for brand title */
+        }
+        .brand-description {
+            text-align: center;
+            margin-top: 10px;
+            color: #333; /* Dark grey for description */
+        }
+        h2 {
+            text-align: center;
+            color: #007bff; /* Blue color for subheading */
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .product-item {
+            width: 150px;
+            text-align: center;
+        }
+        .product-item img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .container h1, .container p {
+            color: #333; /* Dark grey for text content */
+        }
+        .chat-box {
+            display: none;
+            margin-top: 20px;
+            border-top: 2px solid #ccc;
+            padding-top: 10px;
+        }
+        .chat-messages {
+            height: 150px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+        .chat-controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .chat-controls input {
+            flex-grow: 1;
+            padding: 5px;
+        }
+        .chat-controls button {
+            padding: 5px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #capturedImage {
+            max-width: 100px;
+            display: none;
+            margin-top: 10px;
+        }
+        video {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="brand-title">DERMDOC</h1>
+        <p class="brand-description">Dermadoc is a skincare brand developed by dermatologists to provide clinically-tested solutions for a wide range of skin issues. With a focus on scientific formulations, Dermadoc uses only the highest quality ingredients, ensuring that each product addresses specific skin concerns like acne, dryness, pigmentation, and aging. The brand’s goal is to make effective skincare accessible to all, offering products that are safe, non-toxic, and proven to work. Dermadoc believes in educating customers about the best skincare practices and providing personalized recommendations for healthier skin.</p>
+        <h2>Available Products</h2>
+      
+        <div class="products">
+            <div class="product-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtCtzEAd2ir3khstu7iwR20RbXOsCVzjblXw&s" >
+            </div>
+            <div class="product-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_sLtMzQJprJ9QAUqN5y6lt-I0F1ikdvJDTA&s" >
+            </div>
+            <div class="product-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfD_NQQfJXUZPV_jIv_duJCAWOFpCxldsRzQ&s" >
+            </div>
+        </div>
+        
+        <!-- Chat Box Button -->
+        <button onclick="openChat()">Chat for Suggestions</button>
+
+        <!-- Chat Box -->
+        <div class="chat-box" id="chatBox">
+            <h3>Chat with Dermadoc</h3>
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-controls">
+                <input type="text" id="chatInput" placeholder="Type a message...">
+                <button onclick="sendMessage()">Send</button>
+                <button onclick="openCamera()">📷</button>
+                <button onclick="captureImage()">📸</button>
+            </div>
+            <video id="video" width="200" height="150" autoplay></video>
+            <canvas id="canvas" style="display:none;"></canvas>
+            <img id="capturedImage" alt="Captured Image">
+        </div>
+    </div>
+
+    <script>
+        function openChat() {
+            document.getElementById("chatBox").style.display = "block";
+        }
+
+        function sendMessage() {
+            let input = document.getElementById("chatInput").value;
+            if (input.trim()) {
+                let chatMessages = document.getElementById("chatMessages");
+                
+                // Display the customer's message
+                let message = document.createElement("div");
+                message.innerText = "You: " + input;
+                chatMessages.appendChild(message);
+                
+                // Clear the input field
+                document.getElementById("chatInput").value = "";
+                
+                // Scroll the messages box to the bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Simulate a brand reply after 2 seconds
+                setTimeout(brandReply, 2000);
+            }
+        }
+        
+        function brandReply() {
+            let chatMessages = document.getElementById("chatMessages");
+            let message = document.createElement("div");
+            message.innerText = "Dermadoc: Thank you for your message! We will get back to you shortly.";
+            chatMessages.appendChild(message);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function openCamera() {
+            const video = document.getElementById("video");
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    video.style.display = "block";
+                    video.srcObject = stream;
+                })
+                .catch(error => console.error("Error accessing camera: ", error));
+        }
+        
+        function captureImage() {
+            const video = document.getElementById("video");
+            const canvas = document.getElementById("canvas");
+            const capturedImage = document.getElementById("capturedImage");
+            
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            
+            const imageUrl = canvas.toDataURL("image/png");
+            capturedImage.src = imageUrl;
+            capturedImage.style.display = "block";
+            
+            let chatMessages = document.getElementById("chatMessages");
+            let imgElement = document.createElement("img");
+            imgElement.src = imageUrl;
+            imgElement.style.maxWidth = "100px";
+            chatMessages.appendChild(imgElement);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+[
+  {
+      "name": "72HR Hydrating Gel + Probiotics",
+      "brand": "Dot & Key",
+      "price": 695,
+      "stock": 20,
+      "categories": ["Moisturizer", "Face", "Hydration"],
+      "skinType": ["All"],
+      "ingredients": ["Hyaluronic Acid", "Probiotics", "Rice Water"],
+      "benefits": ["Deep Hydration", "Strengthens Skin Barrier", "Lightweight"],
+      "image": "https://example.com/images/hydrating-gel.jpg"
+  },
+  {
+      "name": "Cica Calming Niacinamide Night Gel",
+      "brand": "Dot & Key",
+      "price": 595,
+      "stock": 15,
+      "categories": ["Moisturizer", "Face", "Oily Skin", "Acne-Prone"],
+      "skinType": ["Oily", "Sensitive", "Acne-Prone"],
+      "ingredients": ["Cica", "Niacinamide", "Green Tea"],
+      "benefits": ["Reduces Redness", "Calms Irritation", "Controls Oil"],
+      "image": "https://example.com/images/cica-gel.jpg"
+  },
+  {
+      "name": "Watermelon SuperGlow Face Wash",
+      "brand": "Dot & Key",
+      "price": 350,
+      "stock": 25,
+      "categories": ["Cleanser", "Face", "Brightening", "Exfoliation"],
+      "skinType": ["All"],
+      "ingredients": ["Watermelon", "Glycolic Acid", "Lactic Acid"],
+      "benefits": ["Brightens Skin", "Gently Exfoliates", "Removes Dirt & Oil"],
+      "image": "https://example.com/images/watermelon-facewash.jpg"
+  },
+  {
+      "name": "Vitamin C + E Super Bright Moisturizer",
+      "brand": "Dot & Key",
+      "price": 495,
+      "stock": 18,
+      "categories": ["Moisturizer", "Face", "Brightening", "Dark Spot Care"],
+      "skinType": ["All"],
+      "ingredients": ["Vitamin C", "Vitamin E", "Turmeric"],
+      "benefits": ["Brightens Skin", "Fights Dark Spots", "Evens Skin Tone"],
+      "image": "https://example.com/images/vitamin-c-moisturizer.jpg"
+  },
+  {
+      "name": "Sunscreen SPF 50 PA+++",
+      "brand": "Dot & Key",
+      "price": 595,
+      "stock": 30,
+      "categories": ["Sunscreen", "Face", "UV Protection", "Non-Greasy"],
+      "skinType": ["All"],
+      "ingredients": ["Zinc Oxide", "Hyaluronic Acid", "Green Tea"],
+      "benefits": ["Broad Spectrum Protection", "Lightweight", "Non-Greasy"],
+      "image": "https://example.com/images/sunscreen.jpg"
+  }
+]

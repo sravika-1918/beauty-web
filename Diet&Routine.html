@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Diet & Skincare Routine</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fbe7e7;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #d63384;
+        }
+        .section {
+            margin-top: 50px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            text-align: left;
+        }
+        .problem-selector {
+            text-align: center;
+            margin-top: 30px;
+        }
+        select, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #d63384;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Importance of a Healthy Diet for Skin & Hair</h1>
+        <div class="section">
+            <p>Skincare is not just about applying serums and moisturizers; what you eat plays a crucial role in maintaining healthy, glowing skin and strong hair.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Find the Right Foods for Your Concern</h2>
+            <div class="problem-selector">
+                <label for="problem">Select Your Concern:</label>
+                <select id="problem">
+                    <option value="acne">Acne</option>
+                    <option value="hairfall">Hair Fall</option>
+                    <option value="dryskin">Dry Skin</option>
+                    <option value="oilyskin">Oily Skin</option>
+                </select>
+                <button onclick="suggestDiet()">Get Suggestions</button>
+            </div>
+            <div id="suggestion" class="section" style="display: none;"></div>
+        </div>
+
+        <div class="section">
+            <h2>Personalized Skincare Routine</h2>
+            <div class="problem-selector">
+                <label for="skinType">Select Your Skin Type:</label>
+                <select id="skinType">
+                    <option value="oily">Oily Skin</option>
+                    <option value="dry">Dry Skin</option>
+                    <option value="combination">Combination Skin</option>
+                    <option value="sensitive">Sensitive Skin</option>
+                </select>
+                <button onclick="suggestRoutine()">Get Skincare Routine</button>
+            </div>
+            <div id="routine" class="section" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script>
+        function suggestDiet() {
+            const problem = document.getElementById("problem").value;
+            let foodsToEat = "";
+            let foodsToAvoid = "";
+
+            if (problem === "acne") {
+                foodsToEat = "Green tea, berries, avocados, walnuts, and carrots are great for reducing acne inflammation.";
+                foodsToAvoid = "Avoid sugary foods, dairy, fast food, and high-sodium foods as they can trigger breakouts.";
+            } else if (problem === "hairfall") {
+                foodsToEat = "Salmon, eggs, spinach, nuts, and sweet potatoes help strengthen hair and prevent hair fall.";
+                foodsToAvoid = "Stay away from processed foods, sugary drinks, and excessive caffeine to maintain healthy hair.";
+            } else if (problem === "dryskin") {
+                foodsToEat = "Avocados, olive oil, cucumbers, fatty fish, and almonds provide deep hydration to dry skin.";
+                foodsToAvoid = "Limit alcohol, processed foods, and high-sodium snacks that dehydrate your skin.";
+            } else if (problem === "oilyskin") {
+                foodsToEat = "Cucumber, tomatoes, leafy greens, green tea, and citrus fruits help balance oil production.";
+                foodsToAvoid = "Avoid fried foods, dairy, and excessive sugar to control excess oil.";
+            }
+            
+            document.getElementById("suggestion").innerHTML = `
+                <h3>Recommended Foods</h3>
+                <p>${foodsToEat}</p>
+                <h3>Foods to Avoid</h3>
+                <p>${foodsToAvoid}</p>
+            `;
+            document.getElementById("suggestion").style.display = "block";
+        }
+
+        function suggestRoutine() {
+            const skinType = document.getElementById("skinType").value;
+            let routine = "";
+
+            if (skinType === "oily") {
+                routine = `
+                    <h3>Oily Skin Routine</h3>
+                    <ul>
+                        <li><strong>Cleanser:</strong> Use a gentle foaming cleanser to remove excess oil.</li>
+                        <li><strong>Toner:</strong> Apply a witch hazel or salicylic acid toner to control sebum.</li>
+                        <li><strong>Moisturizer:</strong> Choose an oil-free, lightweight moisturizer.</li>
+                        <li><strong>Serum:</strong> Use niacinamide or hyaluronic acid serum.</li>
+                        <li><strong>Sunscreen:</strong> Opt for a matte, non-comedogenic sunscreen.</li>
+                    </ul>
+                `;
+            } else if (skinType === "dry") {
+                routine = `
+                    <h3>Dry Skin Routine</h3>
+                    <ul>
+                        <li><strong>Cleanser:</strong> Use a hydrating cream-based cleanser.</li>
+                        <li><strong>Toner:</strong> Apply a moisturizing toner with rose water or glycerin.</li>
+                        <li><strong>Moisturizer:</strong> Use a thick, hydrating moisturizer with ceramides.</li>
+                        <li><strong>Serum:</strong> Apply a hyaluronic acid or vitamin E serum.</li>
+                        <li><strong>Sunscreen:</strong> Choose a sunscreen with added moisture (SPF 30+).</li>
+                    </ul>
+                `;
+            } else if (skinType === "combination") {
+                routine = `
+                    <h3>Combination Skin Routine</h3>
+                    <ul>
+                        <li><strong>Cleanser:</strong> Use a mild gel cleanser to balance skin.</li>
+                        <li><strong>Toner:</strong> Choose a soothing toner like green tea or chamomile.</li>
+                        <li><strong>Moisturizer:</strong> Use a lightweight, non-greasy moisturizer.</li>
+                        <li><strong>Serum:</strong> Apply niacinamide or vitamin C serum.</li>
+                        <li><strong>Sunscreen:</strong> Pick a gel-based, broad-spectrum sunscreen.</li>
+                    </ul>
+                `;
+            } else if (skinType === "sensitive") {
+                routine = `
+                    <h3>Sensitive Skin Routine</h3>
+                    <ul>
+                        <li><strong>Cleanser:</strong> Use a fragrance-free, gentle cleanser.</li>
+                        <li><strong>Toner:</strong> Avoid alcohol-based toners, use calming toners like aloe vera.</li>
+                        <li><strong>Moisturizer:</strong> Use a soothing, hypoallergenic moisturizer.</li>
+                        <li><strong>Serum:</strong> Apply centella asiatica or ceramide serum.</li>
+                        <li><strong>Sunscreen:</strong> Choose a mineral sunscreen with zinc oxide.</li>
+                    </ul>
+                `;
+            }
+            
+            document.getElementById("routine").innerHTML = routine;
+            document.getElementById("routine").style.display = "block";
+        }
+    </script>
+</body>
+</html>
